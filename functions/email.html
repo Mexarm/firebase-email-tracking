@@ -1,0 +1,790 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Comunicación Directa Personalizada</title>
+	<style type="text/css">/* /\/\/\/\/\/\/\/\/ CLIENT-SPECIFIC STYLES /\/\/\/\/\/\/\/\/ */
+
+        #outlook a {
+            padding: 0;
+        }
+
+        /* Force Outlook to provide a "view in browser" message */
+
+        .ReadMsgBody {
+            width: 100%;
+        }
+
+        .ExternalClass {
+            width: 100%;
+        }
+
+        /* Force Hotmail to display emails at full width */
+
+        .ExternalClass,
+        .ExternalClass p,
+        .ExternalClass span,
+        .ExternalClass font,
+        .ExternalClass td,
+        .ExternalClass div {
+            line-height: 100%;
+        }
+
+        /* Force Hotmail to display normal line spacing */
+
+        body,
+        table,
+        td,
+        p,
+        a,
+        li,
+        blockquote {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+
+        /* Prevent WebKit and Windows mobile changing default text sizes */
+
+        table,
+        td {
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+        }
+
+        /* Remove spacing between tables in Outlook 2007 and up */
+
+        img {
+            -ms-interpolation-mode: bicubic;
+        }
+
+        /* Allow smoother rendering of resized image in Internet Explorer */
+
+        /* /\/\/\/\/\/\/\/\/ RESET STYLES /\/\/\/\/\/\/\/\/ */
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            border: 0;
+            height: auto;
+            line-height: 100%;
+            outline: none;
+            text-decoration: none;
+        }
+
+        table {
+            border-collapse: collapse !important;
+        }
+
+        body,
+        #bodyTable,
+        #bodyCell {
+            height: 100% !important;
+            margin: 0;
+            padding: 0;
+            width: 100% !important;
+        }
+
+        /* /\/\/\/\/\/\/\/\/ TEMPLATE STYLES /\/\/\/\/\/\/\/\/ */
+
+        #bodyCell {
+            padding: 20px;
+        }
+
+        #templateContainer {
+            width: 600px;
+        }
+
+        /* ========== Page Styles ========== */
+
+        /**
+			* @tab Page
+			* @section background style
+			* @tip Set the background color and top border for your email. You may want to choose colors that match your company's branding.
+			* @theme page
+			*/
+
+        body,
+        #bodyTable {
+            /*@editable*/
+            background-color: #DEE0E2;
+        }
+
+        /**
+			* @tab Page
+			* @section background style
+			* @tip Set the background color and top border for your email. You may want to choose colors that match your company's branding.
+			* @theme page
+			*/
+
+        #bodyCell {
+            /*@editable*/
+            border-top: 4px solid #BBBBBB;
+        }
+
+        /**
+			* @tab Page
+			* @section email border
+			* @tip Set the border for your email.
+			*/
+
+        #templateContainer {
+            /*@editable*/
+            border: 1px solid #BBBBBB;
+        }
+
+        /**
+			* @tab Page
+			* @section heading 1
+			* @tip Set the styling for all first-level headings in your emails. These should be the largest of your headings.
+			* @style heading 1
+			*/
+
+        h1 {
+            /*@editable*/
+            color: #202020 !important;
+            display: block;
+            /*@editable*/
+            font-family: Helvetica;
+            /*@editable*/
+            font-size: 26px;
+            /*@editable*/
+            font-style: normal;
+            /*@editable*/
+            font-weight: bold;
+            /*@editable*/
+            line-height: 100%;
+            /*@editable*/
+            letter-spacing: normal;
+            margin-top: 0;
+            margin-right: 0;
+            margin-bottom: 10px;
+            margin-left: 0;
+            /*@editable*/
+            text-align: left;
+        }
+
+        /**
+			* @tab Page
+			* @section heading 2
+			* @tip Set the styling for all second-level headings in your emails.
+			* @style heading 2
+			*/
+
+        h2 {
+            /*@editable*/
+            color: #404040 !important;
+            display: block;
+            /*@editable*/
+            font-family: Helvetica;
+            /*@editable*/
+            font-size: 20px;
+            /*@editable*/
+            font-style: normal;
+            /*@editable*/
+            font-weight: bold;
+            /*@editable*/
+            line-height: 100%;
+            /*@editable*/
+            letter-spacing: normal;
+            margin-top: 0;
+            margin-right: 0;
+            margin-bottom: 10px;
+            margin-left: 0;
+            /*@editable*/
+            text-align: left;
+        }
+
+        /**
+			* @tab Page
+			* @section heading 3
+			* @tip Set the styling for all third-level headings in your emails.
+			* @style heading 3
+			*/
+
+        h3 {
+            /*@editable*/
+            color: #606060 !important;
+            display: block;
+            /*@editable*/
+            font-family: Helvetica;
+            /*@editable*/
+            font-size: 16px;
+            /*@editable*/
+            font-style: italic;
+            /*@editable*/
+            font-weight: normal;
+            /*@editable*/
+            line-height: 100%;
+            /*@editable*/
+            letter-spacing: normal;
+            margin-top: 0;
+            margin-right: 0;
+            margin-bottom: 10px;
+            margin-left: 0;
+            /*@editable*/
+            text-align: left;
+        }
+
+        /**
+			* @tab Page
+			* @section heading 4
+			* @tip Set the styling for all fourth-level headings in your emails. These should be the smallest of your headings.
+			* @style heading 4
+			*/
+
+        h4 {
+            /*@editable*/
+            color: #808080 !important;
+            display: block;
+            /*@editable*/
+            font-family: Helvetica;
+            /*@editable*/
+            font-size: 14px;
+            /*@editable*/
+            font-style: italic;
+            /*@editable*/
+            font-weight: normal;
+            /*@editable*/
+            line-height: 100%;
+            /*@editable*/
+            letter-spacing: normal;
+            margin-top: 0;
+            margin-right: 0;
+            margin-bottom: 10px;
+            margin-left: 0;
+            /*@editable*/
+            text-align: left;
+        }
+
+        /* ========== Header Styles ========== */
+
+        /**
+			* @tab Header
+			* @section preheader style
+			* @tip Set the background color and bottom border for your email's preheader area.
+			* @theme header
+			*/
+
+        #templatePreheader {
+            /*@editable*/
+            background-color: #F4F4F4;
+            /*@editable*/
+            border-bottom: 1px solid #CCCCCC;
+        }
+
+        /**
+			* @tab Header
+			* @section preheader text
+			* @tip Set the styling for your email's preheader text. Choose a size and color that is easy to read.
+			*/
+
+        .preheaderContent {
+            /*@editable*/
+            color: #808080;
+            /*@editable*/
+            font-family: Helvetica;
+            /*@editable*/
+            font-size: 10px;
+            /*@editable*/
+            line-height: 125%;
+            /*@editable*/
+            text-align: left;
+        }
+
+        /**
+			* @tab Header
+			* @section preheader link
+			* @tip Set the styling for your email's preheader links. Choose a color that helps them stand out from your text.
+			*/
+
+        .preheaderContent a:link,
+        .preheaderContent a:visited,
+        /* Yahoo! Mail Override */
+
+        .preheaderContent a .yshortcuts
+        /* Yahoo! Mail Override */
+
+            {
+            /*@editable*/
+            color: #606060;
+            /*@editable*/
+            font-weight: normal;
+            /*@editable*/
+            text-decoration: underline;
+        }
+
+        /**
+			* @tab Header
+			* @section header style
+			* @tip Set the background color and borders for your email's header area.
+			* @theme header
+			*/
+
+        #templateHeader {
+            /*@editable*/
+            background-color: #F4F4F4;
+            /*@editable*/
+            border-top: 1px solid #FFFFFF;
+            /*@editable*/
+            border-bottom: 1px solid #CCCCCC;
+        }
+
+        /**
+			* @tab Header
+			* @section header text
+			* @tip Set the styling for your email's header text. Choose a size and color that is easy to read.
+			*/
+
+        .headerContent {
+            /*@editable*/
+            color: #505050;
+            /*@editable*/
+            font-family: Helvetica;
+            /*@editable*/
+            font-size: 20px;
+            /*@editable*/
+            font-weight: bold;
+            /*@editable*/
+            line-height: 100%;
+            /*@editable*/
+            padding-top: 0;
+            /*@editable*/
+            padding-right: 0;
+            /*@editable*/
+            padding-bottom: 0;
+            /*@editable*/
+            padding-left: 0;
+            /*@editable*/
+            text-align: left;
+            /*@editable*/
+            vertical-align: middle;
+        }
+
+        /**
+			* @tab Header
+			* @section header link
+			* @tip Set the styling for your email's header links. Choose a color that helps them stand out from your text.
+			*/
+
+        .headerContent a:link,
+        .headerContent a:visited,
+        /* Yahoo! Mail Override */
+
+        .headerContent a .yshortcuts
+        /* Yahoo! Mail Override */
+
+            {
+            /*@editable*/
+            color: #EB4102;
+            /*@editable*/
+            font-weight: normal;
+            /*@editable*/
+            text-decoration: underline;
+        }
+
+        #headerImage {
+            height: auto;
+            max-width: 600px;
+        }
+
+        /* ========== Body Styles ========== */
+
+        /**
+			* @tab Body
+			* @section body style
+			* @tip Set the background color and borders for your email's body area.
+			*/
+
+        #templateBody {
+            /*@editable*/
+            background-color: #F4F4F4;
+            /*@editable*/
+            border-top: 1px solid #FFFFFF;
+            /*@editable*/
+            border-bottom: 1px solid #CCCCCC;
+        }
+
+        /**
+			* @tab Body
+			* @section body text
+			* @tip Set the styling for your email's main content text. Choose a size and color that is easy to read.
+			* @theme main
+			*/
+
+        .bodyContent {
+            /*@editable*/
+            color: #505050;
+            /*@editable*/
+            font-family: Helvetica;
+            /*@editable*/
+            font-size: 14px;
+            /*@editable*/
+            line-height: 150%;
+            padding-top: 20px;
+            padding-right: 20px;
+            padding-bottom: 20px;
+            padding-left: 20px;
+            /*@editable*/
+            text-align: left;
+        }
+
+        /**
+			* @tab Body
+			* @section body link
+			* @tip Set the styling for your email's main content links. Choose a color that helps them stand out from your text.
+			*/
+
+        .bodyContent a:link,
+        .bodyContent a:visited,
+        /* Yahoo! Mail Override */
+
+        .bodyContent a .yshortcuts
+        /* Yahoo! Mail Override */
+
+            {
+            /*@editable*/
+            color: #EB4102;
+            /*@editable*/
+            font-weight: normal;
+            /*@editable*/
+            text-decoration: underline;
+        }
+
+        .bodyContent img {
+            display: inline;
+            height: auto;
+            max-width: 560px;
+        }
+
+        /* ========== Footer Styles ========== */
+
+        /**
+			* @tab Footer
+			* @section footer style
+			* @tip Set the background color and borders for your email's footer area.
+			* @theme footer
+			*/
+
+        #templateFooter {
+            /*@editable*/
+            background-color: #F4F4F4;
+            /*@editable*/
+            border-top: 1px solid #FFFFFF;
+        }
+
+        /**
+			* @tab Footer
+			* @section footer text
+			* @tip Set the styling for your email's footer text. Choose a size and color that is easy to read.
+			* @theme footer
+			*/
+
+        .footerContent {
+            /*@editable*/
+            color: #808080;
+            /*@editable*/
+            font-family: Helvetica;
+            /*@editable*/
+            font-size: 10px;
+            /*@editable*/
+            line-height: 150%;
+            padding-top: 20px;
+            padding-right: 20px;
+            padding-bottom: 20px;
+            padding-left: 20px;
+            /*@editable*/
+            text-align: left;
+        }
+
+        /**
+			* @tab Footer
+			* @section footer link
+			* @tip Set the styling for your email's footer links. Choose a color that helps them stand out from your text.
+			*/
+
+        .footerContent a:link,
+        .footerContent a:visited,
+        /* Yahoo! Mail Override */
+
+        .footerContent a .yshortcuts,
+        .footerContent a span
+        /* Yahoo! Mail Override */
+
+            {
+            /*@editable*/
+            color: #606060;
+            /*@editable*/
+            font-weight: normal;
+            /*@editable*/
+            text-decoration: underline;
+        }
+
+        /* /\/\/\/\/\/\/\/\/ MOBILE STYLES /\/\/\/\/\/\/\/\/ */
+
+        @media only screen and (max-width: 480px) {
+            /* /\/\/\/\/\/\/ CLIENT-SPECIFIC MOBILE STYLES /\/\/\/\/\/\/ */
+            body,
+            table,
+            td,
+            p,
+            a,
+            li,
+            blockquote {
+                -webkit-text-size-adjust: none !important;
+            }
+            /* Prevent Webkit platforms from changing default text sizes */
+            body {
+                width: 100% !important;
+                min-width: 100% !important;
+            }
+            /* Prevent iOS Mail from adding padding to the body */
+            /* /\/\/\/\/\/\/ MOBILE RESET STYLES /\/\/\/\/\/\/ */
+            #bodyCell {
+                padding: 10px !important;
+            }
+
+            /* /\/\/\/\/\/\/ MOBILE TEMPLATE STYLES /\/\/\/\/\/\/ */
+            /* ======== Page Styles ======== */
+            /**
+				* @tab Mobile Styles
+				* @section template width
+				* @tip Make the template fluid for portrait or landscape view adaptability. If a fluid layout doesn't work for you, set the width to 300px instead.
+				*/
+            #templateContainer {
+                max-width: 600px !important;
+                /*@editable*/
+                width: 100% !important;
+            }
+
+            /**
+				* @tab Mobile Styles
+				* @section heading 1
+				* @tip Make the first-level headings larger in size for better readability on small screens.
+				*/
+            h1 {
+                /*@editable*/
+                font-size: 24px !important;
+                /*@editable*/
+                line-height: 100% !important;
+            }
+
+            /**
+				* @tab Mobile Styles
+				* @section heading 2
+				* @tip Make the second-level headings larger in size for better readability on small screens.
+				*/
+            h2 {
+                /*@editable*/
+                font-size: 20px !important;
+                /*@editable*/
+                line-height: 100% !important;
+            }
+
+            /**
+				* @tab Mobile Styles
+				* @section heading 3
+				* @tip Make the third-level headings larger in size for better readability on small screens.
+				*/
+            h3 {
+                /*@editable*/
+                font-size: 18px !important;
+                /*@editable*/
+                line-height: 100% !important;
+            }
+
+            /**
+				* @tab Mobile Styles
+				* @section heading 4
+				* @tip Make the fourth-level headings larger in size for better readability on small screens.
+				*/
+            h4 {
+                /*@editable*/
+                font-size: 16px !important;
+                /*@editable*/
+                line-height: 100% !important;
+            }
+
+            /* ======== Header Styles ======== */
+            #templatePreheader {
+                display: none !important;
+            }
+            /* Hide the template preheader to save space */
+            /**
+				* @tab Mobile Styles
+				* @section header image
+				* @tip Make the main header image fluid for portrait or landscape view adaptability, and set the image's original width as the max-width. If a fluid setting doesn't work, set the image width to half its original size instead.
+				*/
+            #headerImage {
+                height: auto !important;
+                /*@editable*/
+                max-width: 600px !important;
+                /*@editable*/
+                width: 100% !important;
+            }
+
+            /**
+				* @tab Mobile Styles
+				* @section header text
+				* @tip Make the header content text larger in size for better readability on small screens. We recommend a font size of at least 16px.
+				*/
+            .headerContent {
+                /*@editable*/
+                font-size: 20px !important;
+                /*@editable*/
+                line-height: 125% !important;
+            }
+
+            /* ======== Body Styles ======== */
+            /**
+				* @tab Mobile Styles
+				* @section body image
+				* @tip Make the main body image fluid for portrait or landscape view adaptability, and set the image's original width as the max-width. If a fluid setting doesn't work, set the image width to half its original size instead.
+				*/
+            #bodyImage {
+                height: auto !important;
+                /*@editable*/
+                max-width: 560px !important;
+                /*@editable*/
+                width: 100% !important;
+            }
+
+            /**
+				* @tab Mobile Styles
+				* @section body text
+				* @tip Make the body content text larger in size for better readability on small screens. We recommend a font size of at least 16px.
+				*/
+            .bodyContent {
+                /*@editable*/
+                font-size: 18px !important;
+                /*@editable*/
+                line-height: 125% !important;
+            }
+
+            /* ======== Footer Styles ======== */
+            /**
+				* @tab Mobile Styles
+				* @section footer text
+				* @tip Make the body content text larger in size for better readability on small screens.
+				*/
+            .footerContent {
+                /*@editable*/
+                font-size: 14px !important;
+                /*@editable*/
+                line-height: 115% !important;
+            }
+
+            .footerContent a {
+                display: block !important;
+            }
+            /* Place footer social and utility links on their own lines, for easier access */
+        }
+	</style>
+</head>
+<body leftmargin="0" marginheight="0" marginwidth="0" offset="0" style="-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;margin: 0;padding: 0;background-color: #DEE0E2;height: 100% !important;width: 100% !important;" topmargin="0">
+<center>
+<table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" id="bodyTable" style="-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;mso-table-lspace: 0pt;mso-table-rspace: 0pt;margin: 0;padding: 0;background-color: #DEE0E2;border-collapse: collapse !important;height: 100% !important;width: 100% !important;" width="100%">
+	<tbody>
+		<tr>
+			<td align="center" id="bodyCell" style="-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;mso-table-lspace: 0pt;mso-table-rspace: 0pt;margin: 0;padding: 20px;border-top: 4px solid #BBBBBB;height: 100% !important;width: 100% !important;" valign="top"><!-- BEGIN TEMPLATE // -->
+			<table border="0" cellpadding="0" cellspacing="0" id="templateContainer" style="-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;mso-table-lspace: 0pt;mso-table-rspace: 0pt;width: 600px;border: 1px solid #BBBBBB;border-collapse: collapse !important;">
+				<tbody>
+					<tr>
+						<td align="center" style="-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;mso-table-lspace: 0pt;mso-table-rspace: 0pt;" valign="top"><!-- BEGIN PREHEADER // -->
+						<table border="0" cellpadding="0" cellspacing="0" id="templatePreheader" style="-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;mso-table-lspace: 0pt;mso-table-rspace: 0pt;background-color: #F4F4F4;border-bottom: 1px solid #CCCCCC;border-collapse: collapse !important;" width="100%">
+							<tbody>
+								<tr>
+									<td class="preheaderContent" mc:edit="preheader_content00" style="padding-top: 10px;padding-right: 20px;padding-bottom: 10px;padding-left: 20px;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;mso-table-lspace: 0pt;mso-table-rspace: 0pt;color: #808080;font-family: Helvetica;font-size: 10px;line-height: 125%;text-align: left;" valign="top">Para <em>Utel</em>.</td>
+									<!-- *|IFNOT:ARCHIVE_PAGE|* -->
+									<td class="preheaderContent" mc:edit="preheader_content01" style="padding-top: 10px;padding-right: 20px;padding-bottom: 10px;padding-left: 0;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;mso-table-lspace: 0pt;mso-table-rspace: 0pt;color: #808080;font-family: Helvetica;font-size: 10px;line-height: 125%;text-align: left;" valign="top" width="180">&iquest; El email no se despliega correctamente ?<br />
+									<a href="http://tracking.mg.herzudigital.com/c/eJxlT8uKwzAM_JrklmBbtuUcfOiS5jcWP-TUECclj13o169Lj8sIMQzSMBOtkUZp5G22gnHkogKBcehRIspejSMfpf4S4zDd8H5vJCtz_6D9dcU859MtfdhK-7DJhCQ1mZQ4AGkfKkANiYRnOEjdLvZxns-jgVsjpjoxHv98PvJ7U3LXclb2k-m3gSluIccGRlXdyCN0oELspDO8cz5gZxICakeGk2mE_j7yvLrz2qn-EEkXk-Jc1HudmOAcmGdaByM9Rg16UBAG0e7W7cWtcXsHWyuhV1_cntfaei4uf7qe9nDludDxB__nX9A" style="-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;color: #606060;font-weight: normal;text-decoration: underline;" target="_blank">Ver en el navegador</a>.</td>
+									<!-- *|END:IF|* -->
+								</tr>
+							</tbody>
+						</table>
+						<!-- // END PREHEADER --></td>
+					</tr>
+					<tr>
+						<td align="center" style="-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;mso-table-lspace: 0pt;mso-table-rspace: 0pt;" valign="top"><!-- BEGIN HEADER // -->
+						<table border="0" cellpadding="0" cellspacing="0" id="templateHeader" style="-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;mso-table-lspace: 0pt;mso-table-rspace: 0pt;background-color: #F4F4F4;border-top: 1px solid #FFFFFF;border-bottom: 1px solid #CCCCCC;border-collapse: collapse !important;" width="100%">
+							<tbody>
+								<tr>
+									<td class="headerContent" style="-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;mso-table-lspace: 0pt;mso-table-rspace: 0pt;color: #505050;font-family: Helvetica;font-size: 20px;font-weight: bold;line-height: 100%;padding-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;text-align: left;vertical-align: middle;" valign="top"><img id="headerImage" mc:allowdesigner="" mc:allowtext="" mc:edit="header_image" mc:label="header_image" src="http://0977e1e1941a885fba05-2295f4f19cb991da0c4406a9feea4d91.r37.cf1.rackcdn.com/28_herzu-digital-2017-12/d3237636-549c-45cf-b815-0e782a2995c2.png" style="max-width: 600px;-ms-interpolation-mode: bicubic;border: 0;height: auto;line-height: 100%;outline: none;text-decoration: none;" /></td>
+								</tr>
+							</tbody>
+						</table>
+						<!-- // END HEADER --></td>
+					</tr>
+					<tr>
+						<td align="center" style="-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;mso-table-lspace: 0pt;mso-table-rspace: 0pt;" valign="top"><!-- BEGIN BODY // -->
+						<table border="0" cellpadding="0" cellspacing="0" id="templateBody" style="-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;mso-table-lspace: 0pt;mso-table-rspace: 0pt;background-color: #F4F4F4;border-top: 1px solid #FFFFFF;border-bottom: 1px solid #CCCCCC;border-collapse: collapse !important;" width="100%">
+							<tbody>
+								<tr>
+									<td class="bodyContent" mc:edit="body_content00" style="-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;mso-table-lspace: 0pt;mso-table-rspace: 0pt;color: #505050;font-family: Helvetica;font-size: 14px;line-height: 150%;padding-top: 20px;padding-right: 20px;padding-bottom: 20px;padding-left: 20px;text-align: left;" valign="top">
+									<h1 style="display: block;font-family: Helvetica;font-size: 26px;font-style: normal;font-weight: bold;line-height: 100%;letter-spacing: normal;margin-top: 0;margin-right: 0;margin-bottom: 10px;margin-left: 0;text-align: left;color: #202020 !important;">Comunicaci&oacute;n Directa Personalizada.</h1>
+
+									<h3 style="display: block;font-family: Helvetica;font-size: 16px;font-style: italic;font-weight: normal;line-height: 140%;letter-spacing: normal;margin-top: 0;margin-right: 0;margin-bottom: 10px;margin-left: 0;text-align: left;color: #606060 !important;">&quot;<strong><span>Utel</span></strong>, le presentamos&nbsp;nuestros servicios y tecnolog&iacute;a para enviar mensajes personalizados &#39;One to One&#39;&nbsp;que pueden incluir todo tipo de contenido&nbsp;digital dirigido a cada uno de sus clientes.&quot;</h3>
+									</td>
+								</tr>
+								<tr>
+									<td class="bodyContent" style="padding-top: 20px;padding-bottom: 20px;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;mso-table-lspace: 0pt;mso-table-rspace: 0pt;color: #505050;font-family: Helvetica;font-size: 14px;line-height: 150%;padding-right: 20px;padding-left: 20px;text-align: left;"><img id="bodyImage" mc:allowtext="" mc:edit="body_image" mc:label="body_image" src="https://storage101.dfw1.clouddrive.com/v1/MossoCloudFS_1036250/HERZU_Digital/Campaign_2017_12/utel_SF_000138_M.png?temp_url_sig=98a01823eefff395b453c9178797902c8cd2cc63&amp;temp_url_expires=1522531679" style="max-width: 560px;-ms-interpolation-mode: bicubic;border: 0;height: auto;line-height: 100%;outline: none;text-decoration: none;display: inline;" /></td>
+								</tr>
+								<tr>
+									<td class="bodyContent" mc:edit="body_content01" style="-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;mso-table-lspace: 0pt;mso-table-rspace: 0pt;color: #505050;font-family: Helvetica;font-size: 14px;line-height: 150%;padding-top: 20px;padding-right: 20px;padding-bottom: 20px;padding-left: 20px;text-align: left;" valign="top">
+									<h2 style="display: block;font-family: Helvetica;font-size: 20px;font-style: normal;font-weight: bold;line-height: 100%;letter-spacing: normal;margin-top: 0;margin-right: 0;margin-bottom: 10px;margin-left: 0;text-align: left;color: #404040 !important;">Comunicaci&oacute;n Directa Personalizada</h2>
+
+									<h4 style="display: block;font-family: Helvetica;font-size: 14px;font-style: italic;font-weight: normal;line-height: 100%;letter-spacing: normal;margin-top: 0;margin-right: 0;margin-bottom: 10px;margin-left: 0;text-align: left;color: #808080 !important;">Logrando los objetivos de su empresa</h4>
+
+									<p>La comunicaci&oacute;n personalizada con su audiencia es un m&eacute;todo para lograr los objetivos de su marca. Usamos la tecnolog&iacute;a para empoderar a nuestros clientes y juntos llevar a cabo sus objetivos de <em>comunicaci&oacute;n por medio de correo electr&oacute;nico, SMS, adem&aacute;s de producci&oacute;n documentos e im&aacute;genes personalizados.</em> ​</p>
+
+									<ul>
+										<li>Campa&ntilde;as para ofertar productos o servicios (<em>email marketing</em>)</li>
+										<li>Campa&ntilde;as de entrega de contenido digital, como por ejemplo:
+										<ul>
+											<li>P&oacute;lizas,</li>
+											<li>Informes,</li>
+											<li>Cat&aacute;logos,</li>
+											<li>Estados de Cuenta,</li>
+											<li>Encuestas, y mucho mas.</li>
+										</ul>
+										</li>
+									</ul>
+
+									<p>Todos los servicios de entrega por medio de correo electr&oacute;nico&nbsp;incluyen reportes (anal&iacute;tica) para poder medir su rendimiento, puede ver un ejemplo <a href="http://tracking.mg.herzudigital.com/c/eJxlTsEKgzAU-xo9lvfa2ucOPTjU_3hqpwWrUjsEv34dO47kEEJIMtla15UhLL2VgIQygxSgEqSJtKjaFlttnrJ99A11XaEhzGJx8X5PfvaJVzHuoVwsITE4BFfDNLxMhYMBicrUoKDSTparXVI6zkI1hewzr-v668k2b7z65Ecuo-UYeJv2b2zLwt0icPRb_jAH9r_lZE8Ox-rOD4DnPnQ">clic aqui</a>.</p>
+
+									<p>El cifrado en los protocolos de entrega y en los archivos adjuntos brindan <em>seguridad para cuando se trata de informaci&oacute;n&nbsp;confidencial.</em></p>
+
+									<p>Si desea mayor&nbsp;mayor informaci&oacute;n, por favor visite nuestro sitio <a href="http://tracking.mg.herzudigital.com/c/eJxljc8KhCAYxJ-mjuLnv68OHgrrPUTdErLCXIKefl32uMwcBmb4jded6KRCaKNmFBBYFXIKnKBAFEQaA0aokZl-HnCaGkHTQtaQn7ePSyx2I-5I7aqZc8E7KgUoCVz4UDkKe_9SQDuQvt30Wsp5NXxo2Fx93_c_J2ubk9398a32GsJDks1xr79LsvG3Kvqy6dzC9QHjjTqk">www.herzudigital.com</a>, o ll&aacute;menos a los tel&eacute;fono (55)76998910 y (55)76998894 o proporcione sus datos de contacto <a href="http://tracking.mg.herzudigital.com/c/eJxlTsEOgyAU-xo9EkD0wYGDC_ofT0ElETHIYuLXj2XHpT00TdPWailk2wGrveaUAeMF0FDWEBAAgrTGMCO6Fzdq7GEYKkHDSjaXnrf1q8-4kzmGetOdEG5pmJ2Ukwo4UKRulk6pUqoWO9W73nI-q6av-Fh43_dfTbHneGScc6yTxhTwsPGbOopwDwmY_FEerAH9bzfrC8O5u-sDYH4-pA">aqui</a>.</p>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+					<tr>
+						<td align="center" style="-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;mso-table-lspace: 0pt;mso-table-rspace: 0pt;" valign="top">
+						<table border="0" cellpadding="0" cellspacing="0" id="templateFooter" style="-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;mso-table-lspace: 0pt;mso-table-rspace: 0pt;background-color: #F4F4F4;border-top: 1px solid #FFFFFF;border-collapse: collapse !important;" width="100%">
+							<tbody>
+								<tr>
+									<td class="footerContent" mc:edit="footer_content00" style="text-size-adjust: 100%; color: rgb(128, 128, 128); font-family: Helvetica; font-size: 10px; line-height: 150%; padding: 20px;" valign="top"><em>HERZU&nbsp;Digital en&nbsp;</em><a href="http://tracking.mg.herzudigital.com/c/eJxNjkEOhCAMRU-jSyJYLC5YOFHvURWVjIhBJiaefjCzmbSL_r94r5NWoGSFPLdaFBy5SINlwUuGgAhMti1voXqJtu4b7LoMCrew1YT7M9nFRtrY6F2-6nqsxMC5NJyMUqhAgkw4BXUx41xBvuk1xuPMyiYTfdrruthMoxm8fz-MVP1jU8yDpuBon_wj3NNhbuYo2D19sTiyP3fUJ7ljM-cX2SU-oQ" style="-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;color: #606060;font-weight: normal;text-decoration: underline;">Facebook</a></td>
+								</tr>
+								<tr>
+									<td class="footerContent" mc:edit="footer_content01" style="padding-top: 20px;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;mso-table-lspace: 0pt;mso-table-rspace: 0pt;color: #808080;font-family: Helvetica;font-size: 10px;line-height: 150%;padding-right: 20px;padding-bottom: 20px;padding-left: 20px;text-align: left;" valign="top"><em>Copyright &copy; 2017 HERZU Digital, </em><em>All rights reserved.</em></td>
+								</tr>
+								<tr>
+									<td class="footerContent" mc:edit="footer_content02" style="padding-top: 20px;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;mso-table-lspace: 0pt;mso-table-rspace: 0pt;color: #808080;font-family: Helvetica;font-size: 10px;line-height: 150%;padding-right: 20px;padding-bottom: 20px;padding-left: 20px;text-align: left;" valign="top">Correo electronico&nbsp;enviado a <span>dsandoes@utel.edu.mx</span>. Si no desea continuar recibiendo estos emails <a href="http://tracking.mg.herzudigital.com/u/eJwljEEOgyAQAF8jR8LCysKBgw32H0tFJSmaEHvx9aVp5jKXmSU4dKMlECVoBQS6Q0aBkYREKMcYIaJ96OifE83zgKpucs_t_ixlKxe_5eusYg-QVtRrZquctcaBzx4MpkTkgUFb0QK3ysdy_uqjS75l5VaOvtwql__oCoOevsVbKz8" style="-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;color: #606060;font-weight: normal;text-decoration: underline;"> <unsubscribe>haga clic aqui para cancelarlos.</unsubscribe> </a></td>
+								</tr>
+							</tbody>
+						</table>
+						<!-- // END FOOTER --></td>
+					</tr>
+				</tbody>
+			</table>
+			<!-- // END TEMPLATE --></td>
+		</tr>
+	</tbody>
+</table>
+</center>
+<span></span><img width="1px" height="1px" alt="" src="http://tracking.mg.herzudigital.com/o/eJwljMsOgyAQAL-mHsnyWBcPHNpg_2MViiSiDdqLX1-aZi5zmQnOGos9yS47BZKkapAGqQUZIiPQe-lN_1B-eN5pHG8GShJLrNcn5JRPXsW8l25xAEoBoH1NiFoa4gEbMU4EepgVdtVxLbyF_VdvTeIlCte8tWUqnP-j0x1c3ms8vlasLTc"></body>
+</html>
