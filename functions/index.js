@@ -1,9 +1,12 @@
 const functions = require('firebase-functions');
-const cryptoJS = require('crypto-js')
 const axios = require('axios');
+const helpers = require('./helpers');
 const express = require('express');
+
 //const bodyParser = require('body-parser'); //firebase uses its own body parser before the express applications gets executed
 const app = express();
+const msgApp = express();
+const clickApp = express();
 
 const admin = require('firebase-admin');
 admin.initializeApp(functions.config().firebase);
@@ -11,17 +14,14 @@ admin.initializeApp(functions.config().firebase);
 //app.use(bodyParser.json()); //firebase uses its own body parser before the express applications gets executed :()
 
 // random strings
+const getRandomKey = function () {
+    return helpers.getRandomKey(5);
+}
 
 const getKeys = function (fbSnapshotValue) {
     keys = []
     for (var k in fbSnapshotValue) keys.push(k)
     return keys;
-}
-
-const getRandomKey = function () {
-    key = "";
-    for (var i = 0; i < 5; i++) key += Math.random().toString(36).substring(2, 15);
-    return key;
 }
 
 var CONFIG = {};
@@ -30,8 +30,8 @@ admin.database().ref("config").once("value", (snap) => {
 });
 
 //middleware: this api only accepts content-type = application/json
-app.use((req, res, next) => {
-    console.log("");
+
+const verifyContentType = function (req, res, next) {
     if (['POST', 'PUT'].indexOf(req.method) !== -1) {
         if (req.is('application/json')) {
             next();
@@ -42,22 +42,34 @@ app.use((req, res, next) => {
     } else {
         next();
     }
+};
 
-});
+app.use(verifyContentType);
 
 app.post("/domain/:domain/dodnscheck", (req, res) => {
     domain = req.params.domain;
     admin.database().ref("/domain")
-    .orderByChild("domain")
-    .equalTo(domain)
-    .once("value", (snap) => {
-        if (snap.val()) {
-            var key = getKeys(snap.val())[0];
-            res.send(CONFIG.baseURL + "analytics/dnscheck?key=" + snap.val()[key].validation_key);
-        } else {
-            res.status(404).send({"error" : "domain not found"});
-        }
-    })
+        .orderByChild("domain")
+        .equalTo(domain)
+        .once("value", (snap) => {
+            if (snap.val()) {
+                var key = getKeys(snap.val())[0];
+                var uri = CONFIG.baseURL + "analytics/dnscheck?key=" + snap.val()[key].validation_key
+                axios.get(uri)
+                    .then((response) => {
+                        if (response.status == 200) {
+                            res.send({ "message": "domain dns validated successfully" });
+                        } else {
+                            res.status(400).send({ "error": "response not ok" })
+                        }
+                    })
+                    .catch((error) => {
+                        res.status(400).send({ "error": "domain dns settings are incorrect" })
+                    });
+            } else {
+                res.status(404).send({ "error": "domain not found" });
+            }
+        })
 
 });
 
@@ -249,15 +261,131 @@ app.delete("/domain/:domain", (req, res) => {
 });
 
 app.all('*', (req, res) => {
-    res.send(404);
+    res.status(404).end();
+});
+
+// messages endpoint
+
+msgApp.use(verifyContentType);
+
+msgApp.post("/", (req, res) => {
+    const body = req.body;
+    const msg = {};
+
+    msg.id = typeof body.id === 'string' && body.id.length > 0 ? body.id : false;
+    msg.tracking_host = typeof body.tracking_host === 'string' && body.tracking_host.length > 0 ? body.tracking_host : false;
+    msg.from = typeof body.from === 'string' && body.from.length > 0 ? body.from : false;
+    msg.to = typeof body.to === 'string' && body.to.length > 0 ? body.to : false;
+    msg.subject = typeof body.subject === 'string' ? body.subject : false;
+    msg.tags = typeof body.tags === 'object' && body.tags.constructor === Array ? body.tags : [];
+    msg.html_body = typeof body.html_body === 'string' ? body.html_body : false;
+
+    if (msg.id && msg.tracking_host && msg.from && msg.to && msg.subject
+        && msg.tags && msg.html_body) {
+        //valid params 
+        admin.database().ref("/domain")
+            .orderByChild("domain")
+            .equalTo(msg.tracking_host)
+            .once("value", (snap) => {
+                if (snap.val()) {
+                    //host exists
+                    const key = getKeys(snap.val());
+                    //const signingKey = (snap.val()[key]).signing_key;
+                    const tracking_host = (snap.val()[key]).domain;
+
+                    var newMsg = admin.database().ref("/message").push();
+                    newMsg.set(msg, (error) => {
+                        if (!error) {
+                            console.log("random k="+helpers.getRandomKey(1));
+                            //data saved sucessfully
+                            var openURLs = helpers.getAnchorHREFUrlList(msg.html_body)
+                            var trackingURLs = [];
+                            openURLs.forEach((url) => {
+                                //var encodedAndSigned = helpers.encodeBase64AndSign(newMsg.key, signingKey);
+                                trackingURLs.push(
+                                    admin.database().ref("/url/c/").push({
+                                        "message": newMsg.key,
+                                        "target": url,
+                                        "k": helpers.getRandomKey(1)
+                                    })
+                                );
+                            });
+                            trackingURLs.forEach((urlRef)=> {
+                                var k = null;
+                                urlRef.once("value", (snap)=> {
+                                    k = snap.val().k;
+                                })
+                                
+                                urlRef.update({
+                                    "tracking" : CONFIG.baseURL + "c/" + helpers.encode(urlRef.key) +"?k=" +k
+                                });
+                            });
+                            res.send({ "message_id": newMsg.key });
+                        } else {
+                            //data not saved
+                            res.status(500).send({ "error": "unable to save message" });
+                        }
+                    });
+                } else {
+                    //host dont exists
+                    res.status(400).send({ "error": "tracking host does not exists" });
+                }
+            }, (error) => {
+                console.log(error);
+                res.status(500).send({ "error": "internal error retrieving tracking host" });
+            })
+    } else {
+        //invalid params
+        res.status(400).send({ "error": "invalid required params" });
+    }
+
+
+});
+
+// click endpoint
+clickApp.get("/:url_id", (req,res) => {
+    var url_id = helpers.decode(req.params.url_id);
+    var k = req.query.k;
+
+    if (url_id) {
+        urlRef = admin.database().ref("/url/c/"+url_id)
+        .once("value",(snap)=>{
+            if (snap.val()) {
+                //url found
+                var url = snap.val();
+                if (url.k === k) {
+                    //valid request, redirect
+                    res.redirect(snap.val().target);  //@@TODO complement redirect html body like mailgun example.
+                } else {
+                    //not valid request
+                    res.status(400).end();
+                }
+            } else {
+                //url not found
+
+            }
+        }, (error) => {
+            console.log("error retrieving from /url/c/");
+            res.status(500).send({"error" : "internal error retrieving url target"});
+        })
+
+    } else {
+        //url_id not valid
+        res.status(400).end();
+    }
+
+});
+
+clickApp.all("*", (req, res) => {
+    res.status(404).end();
 });
 
 const analytics = functions.https.onRequest(app);
-const o = functions.https.onRequest((req, res) => {
-    res.send({ "message": "open tracking endpoint" });
-});
+const message = functions.https.onRequest(msgApp);
+const c = functions.https.onRequest(clickApp);
 
 module.exports = {
     analytics,
-    o
+    message,
+    c
 }

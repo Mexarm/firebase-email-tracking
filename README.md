@@ -1,1 +1,1 @@
-# firebase-email-tracking
+# firebase-sample
